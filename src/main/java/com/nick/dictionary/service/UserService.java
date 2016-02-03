@@ -42,7 +42,9 @@ public class UserService {
 
 	public void updateUser(User user, int id) {
 		//userRepository.updateById(user, id);
-		
+		user.setId(id);
+		userRepository.save(user);
+		userRepository.flush();
 	}
 
 }

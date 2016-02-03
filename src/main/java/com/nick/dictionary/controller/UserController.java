@@ -3,8 +3,6 @@ package com.nick.dictionary.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.data.repository.cdi.Eager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,12 +27,13 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/adduser")
-	public String addUser() {
+	public String addUser(@Valid @ModelAttribute("user") User user) {
 		return "/user/adduser";
 	}
 
 	@RequestMapping(value = "/adduser", method = RequestMethod.POST)
 	public String saveUser(@Valid @ModelAttribute("user") User user, BindingResult result) {
+		
 		if (result.hasErrors()) {
 			return "user/adduser";
 		}
@@ -61,7 +60,8 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/edit/{id}")
-	public String editUser(@PathVariable int id, Model model){
+	public String editUser(@Valid @ModelAttribute("user") User user, @PathVariable int id, Model model){
+		//user.setId(id);
 		model.addAttribute("user", userService.getById(id));
 		return "user/adduser";
 	}

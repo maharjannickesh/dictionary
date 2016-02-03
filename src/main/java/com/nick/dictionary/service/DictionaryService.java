@@ -19,6 +19,7 @@ public class DictionaryService {
 		List<Dictionary> dictionaries = new ArrayList<>();
 
 		dictionaries = dictionaryRepository.findByWord(word);
+		//dictionaries.forEach((a) -> System.out.println(a.get);
 		return dictionaries;
 	}
 	

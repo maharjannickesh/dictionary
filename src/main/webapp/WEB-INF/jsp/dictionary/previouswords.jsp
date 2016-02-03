@@ -16,7 +16,7 @@
 			<strong>${words.word }</strong>
 			<br>
 			<p>
-				(<em>${words.wordtype }</em> ) : ${words.definition } &nbsp; &nbsp; <a href="<spring:url value="word/delete" />"><i class="glyphicon glyphicon-trash"></i></a>
+				(<em>${words.wordtype }</em> ) : ${words.definition } &nbsp; &nbsp; <a href="<spring:url value="word/delete/${words.id}" />"><i class="glyphicon glyphicon-trash"></i></a>
 			</p>
 
 		</c:forEach>

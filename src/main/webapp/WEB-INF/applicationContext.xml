@@ -38,5 +38,28 @@
 
 	<mvc:resources mapping="/resources/**" location="/resources/"  
 	cache-period="31556926"/>
+	
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="false">
+			<!-- JSON MAPPER -->
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="objectMapper">
+					<bean class="com.fasterxml.jackson.databind.ObjectMapper">
+						<property name="serializationInclusion" value="NON_NULL"></property><!-- 
+							Ignore NULL values -->
+					</bean>
+				</property>
+			</bean>
+
+			<!-- XML MAPPER -->
+			<bean
+				class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"></bean>
+
+			<!-- String Message Converter -->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter"></bean>
+
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 
 </beans>

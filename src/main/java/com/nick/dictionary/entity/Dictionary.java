@@ -1,11 +1,15 @@
 package com.nick.dictionary.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Dictionary {
+public class Dictionary implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
@@ -19,6 +23,10 @@ public class Dictionary {
 
 	public Dictionary() {
 		super();
+	}
+	
+	public int getId() {
+		return id;
 	}
 
 	public String getWord() {

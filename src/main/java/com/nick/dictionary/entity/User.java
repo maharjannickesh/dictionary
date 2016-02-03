@@ -1,5 +1,7 @@
 package com.nick.dictionary.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,9 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 
 @Entity
-public class User {
+public class User implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 
 	@Id

@@ -25,32 +25,40 @@
 			<form:errors path="email" />
 		</div>
 	</div>
-	<c:if test="${empty user}"> 
-	<div class="form-group">
-		<label for="password" class="col-sm-2 control-label">Password:</label>
-		<div class="col-sm-10">
-			<form:password path="password" cssClass="form-control" />
 
-			<form:errors path="password" />
+	<c:choose>
+	    <c:when test="${not empty user.id}">
+	        
+	    </c:when>
+	    <c:otherwise>
+		    	<div class="form-group">
+					<label for="password" class="col-sm-2 control-label">Password:</label>
+					<div class="col-sm-10">
+						<form:password path="password" cssClass="form-control" />
+			
+						<form:errors path="password" />
+					</div>
+				</div>
+			
+				<div class="form-group">
+					<label for="password" class="col-sm-2 control-label">Confirm Password
+						:</label>
+					<div class="col-sm-10">
+						<input type="password" id="password_again" class="form form-control"
+							name="password-again">
+					</div>
+				</div>
+		</c:otherwise>
+	</c:choose>
+	
+		<div class="form-group">
+			<div class="col-md-2"></div>
+			<div class="col-sm-10">
+				<input type="submit" value="Save" class="btn btn-large btn-primary">
+			</div>
+	
 		</div>
-	</div>
-
-	<div class="form-group">
-		<label for="password" class="col-sm-2 control-label">Confirm Password
-			:</label>
-		<div class="col-sm-10">
-			<input type="password" id="password_again" class="form form-control"
-				name="password-again">
-		</div>
-	</div>
-	 </c:if>
-	<div class="form-group">
-		<div class="col-md-2"></div>
-		<div class="col-sm-10">
-			<input type="submit" value="Save" class="btn btn-large btn-primary">
-		</div>
-
-	</div>
+	
 
 
 
