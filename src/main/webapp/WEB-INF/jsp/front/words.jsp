@@ -16,7 +16,7 @@
 		</div>
 		<div class="Search">
 			<form:form commandName="dictionary" method="GET"
-				action='<spring:url value="/search" />'>
+				action='search'>
 				<div class="col-md-12 form-group inline-button">
 					<div class="col-md-10">
 						<form:input path="word" cssClass="form form-control" />

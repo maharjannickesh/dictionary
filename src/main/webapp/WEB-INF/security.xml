@@ -5,13 +5,13 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<http>
+		<intercept-url pattern="/user/login" access="permitAll" />
 		<intercept-url pattern="/testSecurity" access="hasAnyRole('ROLE_ADMIN, ROLE_USER')" />
-		<intercept-url pattern="/adduser" access="hasAnyRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/user" access="hasAnyRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/user/**" access="hasAnyRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/addword" access="hasAnyRole('ROLE_ADMIN, ROLE_USER')" />
 		<intercept-url pattern="/saveword" access="hasAnyRole('ROLE_ADMIN, ROLE_USER')" />
 		
-		<form-login login-page="/login" default-target-url="/addword" />
+		<form-login login-page="/user/login" default-target-url="/addword" />
 		<logout  logout-url="/logout" logout-success-url="/"/>
 	</http>
 	

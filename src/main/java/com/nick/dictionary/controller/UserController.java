@@ -3,6 +3,8 @@ package com.nick.dictionary.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.data.repository.cdi.Eager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -56,5 +58,20 @@ public class UserController {
 	public String deleteUser(@PathVariable int id ){
 		userService.deleteUser(id);
 		return "redirect:/user/user";
+	}
+	
+	@RequestMapping(value="/edit/{id}")
+	public String editUser(@PathVariable int id, Model model){
+		model.addAttribute("user", userService.getById(id));
+		return "user/adduser";
+	}
+	
+	@RequestMapping(value="/edit/{id}", method = RequestMethod.POST)
+	public String saveEditUser(@PathVariable int id, @Valid @ModelAttribute("user") User user, BindingResult result ){
+		if(!result.hasErrors()){
+		userService.updateUser(user, id);
+		return "redirect:/user/user";
+		}
+		return "redirect:/user/edit/{id}";
 	}
 }
