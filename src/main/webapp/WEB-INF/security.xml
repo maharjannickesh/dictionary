@@ -5,9 +5,14 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<http>
-		<intercept-url pattern="/testSecurity" access="hasRole('ROLE_USER')" />
-		<form-login />
-		<logout />
+		<intercept-url pattern="/testSecurity" access="hasAnyRole('ROLE_ADMIN, ROLE_USER')" />
+		<intercept-url pattern="/adduser" access="hasAnyRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/user" access="hasAnyRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/addword" access="hasAnyRole('ROLE_ADMIN, ROLE_USER')" />
+		<intercept-url pattern="/saveword" access="hasAnyRole('ROLE_ADMIN, ROLE_USER')" />
+		
+		<form-login login-page="/login" default-target-url="/addword" />
+		<logout  logout-url="/logout" logout-success-url="/"/>
 	</http>
 	
 	
@@ -15,9 +20,9 @@
 		<authentication-provider>
 		<password-encoder  hash="bcrypt"/>
 			<user-service>
-				<user name="user" password="123" authorities="ROLE_USER" />
-				<user name="admin" password="123" authorities="ROLE_ADMIN" />
-				<user name="super" password="123" authorities="ROLE_USER,ROLE_ADMIN" />
+				<user name="user" password="$2a$08$zPcG7krLe6ZNBSGRmatD2eAW.lKwX6CqrQhz0p.5HCqmq0S3OfsVK" authorities="ROLE_USER" />
+				<user name="admin" password="$2a$08$zPcG7krLe6ZNBSGRmatD2eAW.lKwX6CqrQhz0p.5HCqmq0S3OfsVK" authorities="ROLE_ADMIN" />
+				<user name="super" password="$2a$08$zPcG7krLe6ZNBSGRmatD2eAW.lKwX6CqrQhz0p.5HCqmq0S3OfsVK" authorities="ROLE_USER,ROLE_ADMIN" />
 			</user-service>
 		</authentication-provider>
 

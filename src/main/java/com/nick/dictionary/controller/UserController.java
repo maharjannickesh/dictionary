@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -14,6 +15,7 @@ import com.nick.dictionary.entity.User;
 import com.nick.dictionary.service.UserService;
 
 @Controller
+@RequestMapping(value="/user")
 public class UserController {
 
 	@Autowired
@@ -35,7 +37,7 @@ public class UserController {
 			return "user/adduser";
 		}
 		userService.save(user);
-		return "redirect:/adduser?success=1";
+		return "redirect:/user/user?success=1";
 
 	}
 	
@@ -43,5 +45,16 @@ public class UserController {
 	public String allUser(Model model) {
 		model.addAttribute("users", userService.findAllUser());
 		return "user/alluser";
+	}
+	
+	@RequestMapping(value="/login")
+	public String login(){
+		return "user/login";
+	}
+	
+	@RequestMapping(value="/delete/{id}")
+	public String deleteUser(@PathVariable int id ){
+		userService.deleteUser(id);
+		return "redirect:/user/user";
 	}
 }

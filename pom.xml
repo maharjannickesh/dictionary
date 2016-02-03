@@ -21,6 +21,13 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>request</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+
+
+		<dependency>
 			<groupId>org.jboss.logging</groupId>
 			<artifactId>jboss-logging</artifactId>
 			<version>3.3.0.Final</version>

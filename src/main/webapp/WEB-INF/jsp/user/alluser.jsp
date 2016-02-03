@@ -7,9 +7,9 @@
 <jsp:include page="../basic/header.jsp"></jsp:include>
 <jsp:include page="../basic/navbar.jsp"></jsp:include>
 
-<div class="mainbody .col-md-2">
-
-<table class="table table-striped">
+<div class="mainbody container">
+ 
+<table class="table table-striped table-bordered">
 <thead>
 	<tr>
 		<th>S No.</th>
@@ -28,7 +28,7 @@
 		<td>${user.name }</td>
 		<td>${user.email }</td>
 		<td>${user.id }</td>
-		<td>${user.id }</td>
+		<td><a href='<spring:url value="/user/delete/${user.id }" />'> <i class="glyphicon glyphicon-trash"></i></a>  </td>
 		
 	</tr>
 

@@ -5,7 +5,7 @@
 <jsp:include page="../basic/navbar.jsp"></jsp:include>
 
 <div>
-
+<div class="container">
 <form:form commandName="user" cssClass="form-horizontal registrationForm">
 
 <div class="form-group">
@@ -43,7 +43,7 @@
 	</div>
 
 	<div class="form-group">
-
+		<div class="col-md-2"></div>
 		<div class="col-sm-10">
 			<input type="submit" value="Save" class="btn btn-large btn-primary">
 		</div>
@@ -53,7 +53,7 @@
 
 
 </form:form>
-
+</div>
 </div>
 
 </body>
