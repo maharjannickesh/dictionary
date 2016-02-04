@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -10,29 +10,15 @@
 <div class="mainbody container">
 
 
-	<c:set var="searchword" value="<%=request.getParameter(\"word\")%>" />
-	<div id="wordarea">
-		<c:forEach items="${word}" var="words">
-			<strong>${words.word }</strong>
-			<br>
-			<p>
-				(<em>${words.wordtype }</em> ) : ${words.definition }  &nbsp; &nbsp; <a href="<spring:url value="/word/edit/${words.id}" />"><i class="glyphicon glyphicon-pencil"></i></a> &nbsp; &nbsp; <a href="<spring:url value="/word/delete/${words.id}" />"><i class="glyphicon glyphicon-trash"></i></a>
-			</p>
-
-		</c:forEach>
-		<p class="small">You searched for <em>${searchword}</em> <a href='<spring:url value="/word/addword"></spring:url>'>Search Again</a></p>
-	</div>
-	
 
 	<form:form commandName="dictionary"
 		cssClass="form-horizontal addwordForm col-md-9"
-		action="/Dictionary/word/saveword">
+		action="/Dictionary/word/saveeditword/${dictionary.id }">
 
 		<div class="form-group">
 			<label for="word" class="col-sm-2 control-label">Word:</label>
 			<div class="col-sm-10">
-				<form:input path="word" cssClass="form-control"
-					value="${searchword}" readonly="true" />
+				<form:input path="word" cssClass="form-control" />
 				<form:errors path="word" />
 			</div>
 		</div>

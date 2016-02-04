@@ -25,7 +25,7 @@
 				<request:isUserInRole role="ROLE_ADMIN">
 					<li><a href='<spring:url value="/user/user" />'>User</a></li>
 				</request:isUserInRole>
-				<li><a href='<spring:url value="/addword" />'>Words</a></li>
+				<li><a href='<spring:url value="/word/addword" />'>Words</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href='<spring:url value="/logout" />'>Logout</a></li>

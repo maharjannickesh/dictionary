@@ -14,6 +14,10 @@ public interface DictionaryRepository extends JpaRepository<Dictionary, Integer>
 	
 	List<Dictionary> findByWord(String word);
 
+	Dictionary getById(int id);
+
+	
+
 
 
 }

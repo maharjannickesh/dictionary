@@ -56,7 +56,7 @@ public class UserController {
 	@RequestMapping(value="/delete/{id}")
 	public String deleteUser(@PathVariable int id ){
 		userService.deleteUser(id);
-		return "redirect:/user/user";
+		return "redirect:/user/user?delete=1";
 	}
 	
 	@RequestMapping(value="/edit/{id}")
@@ -70,7 +70,7 @@ public class UserController {
 	public String saveEditUser(@PathVariable int id, @Valid @ModelAttribute("user") User user, BindingResult result ){
 		if(!result.hasErrors()){
 		userService.updateUser(user, id);
-		return "redirect:/user/user";
+		return "redirect:/user/user?edit=1";
 		}
 		return "redirect:/user/edit/{id}";
 	}

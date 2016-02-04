@@ -7,8 +7,23 @@
 <jsp:include page="../basic/header.jsp"></jsp:include>
 <jsp:include page="../basic/navbar.jsp"></jsp:include>
 
+
+
+<%-- <c:if test='<%= request.getParameter(\"add\") %> '>
+Added
+</c:if>
+<c:if test='<%= request.getParameter(\"edit\") %> ' >
+Edited
+</c:if>
+<c:if test='<%= request.getParameter(\"delete\") %> '>
+Deleted
+</c:if> --%>
+
+
+
+
 <div class="mainbody container">
-	<form:form commandName="dictionary" action="/Dictionary/saveword"
+	<form:form commandName="dictionary" action="/Dictionary/word/saveword"
 		cssClass="form-horizontal addwordForm" method="GET">
 
 		<div class="form-group inline-button">
@@ -21,7 +36,7 @@
 			
 		</div>
 		<form:errors path="word" />
-</div>
+
 
 </form:form>
 </div>

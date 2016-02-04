@@ -10,6 +10,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
 	User getById(int id);
 
-	//void updateById(User user, int id);
+
 
 }

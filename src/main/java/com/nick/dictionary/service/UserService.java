@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.nick.dictionary.entity.Role;
 import com.nick.dictionary.entity.User;
 import com.nick.dictionary.repository.UserRepository;
 
@@ -15,6 +16,8 @@ public class UserService {
 
 	@Autowired
 	private UserRepository userRepository;
+	
+	private Role r;
 
 	public void save(User user) {
 		user.setEnabled(true);
