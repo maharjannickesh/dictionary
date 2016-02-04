@@ -17,8 +17,7 @@
 	crossorigin="anonymous">
 
 <!-- JQuery -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <script
@@ -30,5 +29,23 @@
 <script src="<c:url value="/resources/js/main.js" />" ></script>
 
 
+
 </head>
+<div class="modal fade deleteModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Delete Item</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you Sure You want to delete this item? &hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a href="" class="yesBtn"><button type="button" class="btn btn-primary ">Yes</button></a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <body>

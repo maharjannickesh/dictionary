@@ -29,7 +29,7 @@
 		<td>${user.name }</td>
 		<td>${user.email }</td>
 		<td><a href='<spring:url value="/user/edit/${user.id }" />'> <i class="glyphicon glyphicon-pencil"></i></a></td>
-		<td><a href='<spring:url value="/user/delete/${user.id }" />'> <i class="glyphicon glyphicon-trash"></i></a>  </td>
+		<td><a  class="deleteBtn" href='<spring:url value="/user/delete/${user.id }" />' > <i class="glyphicon glyphicon-trash"></i></a>  </td>
 		
 	</tr>
 
